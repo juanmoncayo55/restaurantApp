@@ -16,7 +16,8 @@ const globalStyles = StyleSheet.create({
 	botonTexto: {
 		textTransform: "uppercase",
 		fontWeight: "bold",
-		color: "#000"
+		color: "#000",
+		textAlign: "center"
 	},
 	titulo: {
 		fontWeight: "500",
@@ -33,7 +34,8 @@ const globalStyles = StyleSheet.create({
 		marginVertical: 20,
 		textAlign: "center",
 		fontSize: 24,
-		fontWeight: "bold"
+		fontWeight: "bold",
+		paddingTop: 10,
 	}
 })
 

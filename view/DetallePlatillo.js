@@ -1,18 +1,22 @@
 import React, { useContext } from 'react';
 import {
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import {
   Container,
+  Center,
   View,
   Box,
   HStack,
   VStack,
   Divider,
   Button,
+  Pressable,
   Text,
   Heading
 } from 'native-base'
+import {useNavigation} from '@react-navigation/native'
 
 import PedidosContext from '../context/pedidos/pedidosContext.js'
 
@@ -24,42 +28,48 @@ const DetallePlatillo = () => {
 
   const {nombre, imagen, categoria, descripcion, precio} = platillo;
 
+  const navigation = useNavigation()
+
   return (
-    <View style={globalStyles.contenedor}>
-      <Box style={globalStyles.contenido}>
-        <Heading style={globalStyles.titulo}>{nombre}</Heading>
+    <ScrollView style={{flex: 1}}>
+      <View style={[globalStyles.contenedor, {marginBottom: 30}]}>
+        <Box style={globalStyles.contenido}>
+          <Heading style={globalStyles.titulo}>{nombre}</Heading>
 
-        {/* Inicio de nuestro Card En la version NB-3.x.x */}
-        <Box
-          borderWidth="1"
-          borderColor="coolGray.300"
-          rounded="lg"
-          _android={{
-            shadow: 1,
-            borderWidth: 0
-          }}
-        >
-          <VStack space="4" divider={<Divider />} >
-            <Box p="3">
-              <Image
-                style={globalStyles.imagen}
-                source={{uri: imagen}}
-              />
+          {/* Inicio de nuestro Card En la version NB-3.x.x */}
+          <Box
+            borderWidth="1"
+            borderColor="coolGray.300"
+            rounded="lg"
+            _android={{
+              shadow: 1,
+              borderWidth: 0
+            }}
+          >
+            <VStack space="4" divider={<Divider />} >
+              <Box p="3">
+                <Image
+                  style={globalStyles.imagen}
+                  source={{uri: imagen}}
+                />
 
-              <Text>{descripcion}</Text>
-              <Text style={globalStyles.cantidad}>Precio: $ {precio}</Text>
-            </Box>
-            { /*<Box px="3">
-              NativeBase is a free and open source framework that enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6.
-            </Box>
-            <Box px="3" pb="3">
-              GeekyAnts
-            </Box>*/}
-          </VStack>
+                <Text style={{marginTop: 20}}>{descripcion}</Text>
+                <Text style={globalStyles.cantidad}>Precio: $ {precio}</Text>
+              </Box>
+            </VStack>
+          </Box>
+          {/* Fin de nuestro Card En la version NB-3.x.x */}
         </Box>
-        {/* Fin de nuestro Card En la version NB-3.x.x */}
+
+      </View>
+      <Box flex={1} bg="white" safeAreaBottom width="100%" alignSelf="center">
+        <HStack>
+          <Button style={[globalStyles.boton, {borderRadius: 0}]} cursor="pointer" py="3" flex={1} onPress={() => navigation.navigate('FormularioPlatillo')}>
+            <Text style={globalStyles.botonTexto}>Ordenar Platillo</Text>
+          </Button>
+        </HStack>
       </Box>
-    </View>
+    </ScrollView>
   );
 }
 
