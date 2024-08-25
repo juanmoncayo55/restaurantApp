@@ -41,10 +41,6 @@ const DetallePlatillo = () => {
             borderWidth="1"
             borderColor="coolGray.300"
             rounded="lg"
-            _android={{
-              shadow: 1,
-              borderWidth: 0
-            }}
           >
             <VStack space="4" divider={<Divider />} >
               <Box p="3">
