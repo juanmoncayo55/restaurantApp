@@ -36,6 +36,9 @@ const globalStyles = StyleSheet.create({
 		fontSize: 24,
 		fontWeight: "bold",
 		paddingTop: 10,
+	},
+	fullWidth: {
+		width: "100%"
 	}
 })
 

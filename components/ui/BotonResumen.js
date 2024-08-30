@@ -15,7 +15,7 @@ const BotonResumen = () => {
 
 	return (
 		<Button
-			style={globalStyles.boton}
+			style={[globalStyles.boton, globalStyles.fullWidth]}
 			onPress={() => navigation.navigate("ResumenPedido") }
 		>
 			<Text style={globalStyles.botonTexto}>Ir a Pedido</Text>
